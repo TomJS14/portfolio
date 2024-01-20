@@ -138,6 +138,7 @@ main {
 
 .hello {
   display: flex;
+  gap: 2rem;
   flex-direction: column;
   align-items: center;
   font-family: "Courier New", Courier, monospace;
@@ -147,6 +148,7 @@ main {
 .waving {
   align-items: center;
   width: 10rem;
+  color: white;
 }
 
 .waving:hover {
@@ -164,6 +166,44 @@ main {
   }
 }
 
+.nightSwitch {
+  margin-top: 50px;
+  background: #e7e7ee;
+  border-radius: 99px;
+  box-shadow: black 0 10px 20px -10px;
+  box-sizing: border-box;
+
+  cursor: pointer;
+  font-family: Inter, Helvetica;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
+.nightSwitch:hover {
+  cursor: pointer;
+}
+
+.darkMode {
+  background-color: rgb(78, 77, 77);
+  color: white;
+}
+
+.lightMode {
+  color: black;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
+
 .backgroundImg {
   position: fixed;
   top: 0;
@@ -174,4 +214,28 @@ main {
   object-position: center;
   opacity: 0.8;
   z-index: -1;
+}
+
+.message {
+  position: absolute;
+  bottom: 20px;
+  font-size: 2rem;
+  animation: 1s bounce infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    bottom: 30px;
+  }
+  to {
+    bottom: 15px;
+  }
+}
+
+.message:hover {
+  cursor: pointer;
+  font-size: 5rem;
+  animation: none;
+
+  /* use javascript to render a drag arrow beneath */
 }
