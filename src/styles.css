@@ -125,24 +125,71 @@ table {
   border-spacing: 0;
 }
 
-/* AFTER RESET */
-
-main {
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 99.5vh;
+* {
+  box-sizing: border-box;
 }
 
-.hello {
+/* AFTER RESET */
+
+.container {
+  border: 1px solid green;
   display: flex;
-  gap: 2rem;
   flex-direction: column;
   align-items: center;
   font-family: "Courier New", Courier, monospace;
   font-size: 2rem;
+  color: #fff;
+}
+
+.slideOne {
+  background: linear-gradient(0deg, #4f4080, #9553ff);
+}
+
+.slideTwo {
+  background: linear-gradient(0deg, #53ff88, #4f4080);
+}
+
+.hello {
+  font-size: 2rem;
+}
+
+.slides {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+
+  transition: transform 0.3s ease;
+}
+
+.message {
+  position: absolute;
+  overflow: visible;
+  bottom: 0px;
+  font-size: 2rem;
+  animation: 1s bounce infinite alternate;
+  transition: transform 0.3s ease;
+}
+
+/*  @keyframes bounce {
+  from {
+    bottom: 30px;
+  }
+  to {
+    bottom: 15px;
+  } 
+} */
+
+.message:hover {
+  cursor: pointer;
+  animation: none;
+  transform: translateY(-20px);
+
+  /* use javascript to render a drag arrow beneath */
 }
 
 .waving {
@@ -186,7 +233,7 @@ main {
   border: 0;
 }
 
-.nightSwitch:hover {
+.nightSwitch {
   cursor: pointer;
 }
 
@@ -197,6 +244,15 @@ main {
 
 .lightMode {
   color: black;
+}
+
+.lightMode:hover {
+  /* got these backwards */
+  background: linear-gradient(90deg, white, yellow, orange);
+}
+
+.darkMode:hover {
+  background: linear-gradient(90deg, white, grey, black);
 }
 
 .dark {
@@ -214,28 +270,4 @@ main {
   object-position: center;
   opacity: 0.8;
   z-index: -1;
-}
-
-.message {
-  position: absolute;
-  bottom: 20px;
-  font-size: 2rem;
-  animation: 1s bounce infinite alternate;
-}
-
-@keyframes bounce {
-  from {
-    bottom: 30px;
-  }
-  to {
-    bottom: 15px;
-  }
-}
-
-.message:hover {
-  cursor: pointer;
-  font-size: 5rem;
-  animation: none;
-
-  /* use javascript to render a drag arrow beneath */
 }
