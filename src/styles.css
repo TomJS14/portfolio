@@ -143,10 +143,15 @@ table {
 
 .slideOne {
   background: linear-gradient(0deg, #4f4080, #9553ff);
+  border: 1px solid green;
 }
 
 .slideTwo {
   background: linear-gradient(0deg, #53ff88, #4f4080);
+}
+
+.slideThree {
+  background: linear-gradient(0deg, #ffffff, #53ff88);
 }
 
 .hello {
@@ -170,43 +175,41 @@ table {
   position: absolute;
   overflow: visible;
   bottom: 0px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   animation: 1s bounce infinite alternate;
   transition: transform 0.3s ease;
 }
 
-/*  @keyframes bounce {
+@keyframes bounce {
   from {
     bottom: 30px;
   }
   to {
     bottom: 15px;
-  } 
-} */
+  }
+}
 
 .message:hover {
   cursor: pointer;
-  animation: none;
-  transform: translateY(-20px);
 
-  /* use javascript to render a drag arrow beneath */
+  /* use javascript to render a drag arrow beneath? */
 }
 
 .waving {
   align-items: center;
   width: 10rem;
   color: white;
+  animation: 0.8s wave 4 alternate;
 }
 
 .waving:hover {
-  width: 15rem;
   cursor: pointer;
   animation: 0.8s wave infinite alternate;
 }
 
 @keyframes wave {
   from {
-    rotate: -20deg;
+    rotate: 0deg;
   }
   to {
     rotate: 40deg;
@@ -237,37 +240,72 @@ table {
   cursor: pointer;
 }
 
-.darkMode {
-  background-color: rgb(78, 77, 77);
-  color: white;
+.darkMode,
+.default {
+  background: linear-gradient(90deg, white, grey, black);
 }
 
 .lightMode {
   color: black;
-}
-
-.lightMode:hover {
-  /* got these backwards */
   background: linear-gradient(90deg, white, yellow, orange);
 }
 
-.darkMode:hover {
-  background: linear-gradient(90deg, white, grey, black);
-}
-
 .dark {
-  background-color: black;
+  background: black !important;
   color: white;
 }
 
-.backgroundImg {
-  position: fixed;
-  top: 0;
-  left: 0;
+img {
+  max-width: 50%;
+}
+
+.projectContainer {
+  display: grid;
+  align-items: center;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0.8;
-  z-index: -1;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  max-width: 95%;
+  max-height: 100vh;
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr; /* On smaller screens, show one column */
+  }
+
+  @media (min-width: 601px) and (max-width: 900px) {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* On medium screens, show two columns */
+  }
+
+  @media (min-width: 901px) {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* On larger screens, show three columns */
+  }
+}
+
+.projectCard {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  text-decoration: none;
+  gap: 15px;
+  font-size: 1.2rem;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.projectIcon:hover {
+  cursor: pointer;
+  filter: hue-rotate(90deg);
+}
+
+.projectCard:hover {
+  cursor: pointer;
+  background-color: rgba(13, 233, 182, 0.5);
 }

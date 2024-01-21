@@ -22,3 +22,5 @@ This is the final project of advanced CSS & HTML Project
 - PLACEHOLDER
 
 Graphics from - [PLACEHOLDER]
+
+<a href="https://www.flaticon.com/free-icons/paint" title="paint icons">Paint icons created by Eucalyp - Flaticon</a>
